@@ -17,5 +17,5 @@ spec:
         image: your-dockerhub-username/html-app:latest
         ports:
         - containerPort: 80
-        imagePullPolicy: Never
+        imagePullPolicy: Always
 
