@@ -1,7 +1,8 @@
 pipeline {
     agent {
-        label 'main-node'
+        label 'built-in-node'
     }
+    
     triggers {
         githubPush()  // This enables GitHub webhook trigger for pipeline
     }
@@ -15,6 +16,11 @@ pipeline {
     }
 
     stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
         stage('Clone Repository') {
             steps {
                 script {
@@ -27,12 +33,10 @@ pipeline {
             steps {
                 script {
                     sh '''
-                    docker rmi sriram2421/html-app
+                    docker rmi sriram2421/html-app:latest
                     docker build -t sriram2421/html-app:latest DevOps
                     echo \$DOCKER_PASSWORD | docker login -u \$DOCKER_USER --password-stdin
                     docker push sriram2421/html-app:latest
-                    kubectl apply -f DevOps/deployment.yaml
-                    kubectl apply -f DevOps/service.yaml
                     '''
                 }
             }
