@@ -21,13 +21,7 @@ pipeline {
                 deleteDir() // Deletes all files in the workspace
             }
         }
-        stage('Clone Repository') {
-            steps {
-                script {
-                    sh "git clone -b ${BRANCH} ${REPO_URL} DevOps"
-                }
-            }
-        }
+        
 
         stage('Deploy to Kubernetes') {
             steps {
