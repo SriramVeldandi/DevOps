@@ -2,10 +2,7 @@ pipeline {
     agent {
         label 'built-in-node'
     }
-    
-    triggers {
-        githubPush()  // This enables GitHub webhook trigger for pipeline
-    }
+
 
     environment {
         KUBE_CONFIG = "/var/lib/jenkins/.kube/config"  // Adjust if needed
