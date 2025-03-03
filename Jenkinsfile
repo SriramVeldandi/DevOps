@@ -16,16 +16,10 @@ pipeline {
     }
 
     stages {
-        stage('Clean Workspace') {
-            steps {
-                deleteDir() // Deletes all files in the workspace
-            }
-        }
-        
         stage('Clone Repository') {
             steps {
                 script {
-                    sh "git clone -b ${BRANCH} ${REPO_URL}"
+                    sh "rm -rf DevOps && git clone -b ${BRANCH} ${REPO_URL} DevOps"
                 }
             }
         }
