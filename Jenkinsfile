@@ -28,7 +28,7 @@ pipeline {
                 script {
                     sh '''
                     docker rmi sriram2421/html-app:latest
-                    docker build -t sriram2421/html-app:latest DevOps
+                    docker build -t sriram2421/html-app:latest .
                     echo \$DOCKER_PASSWORD | docker login -u \$DOCKER_USER --password-stdin
                     docker push sriram2421/html-app:latest
                     '''
