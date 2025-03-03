@@ -25,7 +25,7 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 script {
-                    sh "git clone -b ${BRANCH} ${REPO_URL} DevOps"
+                    sh "git clone -b ${BRANCH} ${REPO_URL}"
                 }
             }
         }
