@@ -36,8 +36,9 @@ pipeline {
             steps {
                 script {
                     echo 'hello'
-                    //sh 'kubectl apply -f deployment.yaml'
-                    //sh 'kubectl apply -f service.yaml'
+                    sh 'kubectl apply -f deployment.yaml'
+                    sh 'kubectl apply -f service.yaml'
+                    sh 'kubectl get services'
                 }
             }
         }
