@@ -35,7 +35,6 @@ pipeline {
         stage('K8S Deploy') {
             steps {
                 script {
-                    echo 'hello'
                     //sh 'kubectl apply -f deployment.yaml'
                     sh 'kubectl set image deployment my-app-deployment my-app-container=sriram2421/myimage --record'
                     sh 'kubectl rollout restart deployment my-app-deployment'
