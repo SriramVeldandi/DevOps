@@ -6,6 +6,7 @@ pipeline {
                 git 'https://github.com/SriramVeldandi/DevOps.git'
             }
         }
+        /*
         stage('Docker Remove Container') {
             steps {
                 script {
@@ -32,5 +33,6 @@ pipeline {
                 }
             }
         }
+        */
     }
 }
