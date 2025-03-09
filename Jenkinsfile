@@ -37,7 +37,7 @@ pipeline {
                 script {
                     echo 'hello'
                     //sh 'kubectl apply -f deployment.yaml'
-                    sh 'kubectl set image deployment my-app-deployment myimage=sriram2421/myimage --record'
+                    sh 'kubectl set image deployment my-app-deployment my-app-container=sriram2421/myimage --record'
                     sh 'kubectl rollout restart deployment my-app-deployment'
                     sh 'kubectl rollout status deployment/html-app-deployment'
                     sh 'kubectl apply -f service.yaml'
