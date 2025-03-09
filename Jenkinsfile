@@ -6,7 +6,6 @@ pipeline {
                 git 'https://github.com/SriramVeldandi/DevOps.git'
             }
         }
-        /*
         stage('Docker Remove Container') {
             steps {
                 script {
@@ -14,12 +13,11 @@ pipeline {
                 }
             }
         }
-        */
         stage('Docker Push') {
             steps {
                 withCredentials([usernamePassword(credentialsId:'DockerLogin', usernameVariable: 'DockerUsername', passwordVariable: 'DockerPassword')]){
                     script {
-                        //sh 'docker rmi sriram2421/myimage'
+                        sh 'docker rmi sriram2421/myimage'
                         sh 'docker build -t sriram2421/myimage .'
                         sh 'docker login -u ${DockerUsername} -p ${DockerPassword}'
                         sh 'docker push sriram2421/myimage'
